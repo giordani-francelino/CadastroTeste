@@ -9,7 +9,7 @@ FLUSH PRIVILEGES;
 
 mysql --host=franca(nome do banco de dados) --user=giordani --password     =giordani
  */
-package com.mycompany.cadastroteste.repositorio;
+package com.mycompany.contratoTeste.repositorio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

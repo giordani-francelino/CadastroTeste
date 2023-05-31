@@ -31,7 +31,7 @@
  *   For example, other rights such as publicity, privacy, 
  *   or moral rights may limit how you use the material.
  */
-package com.mycompany.cadastroteste.entidade;
+package com.mycompany.contratoTeste.entidade;
 
 /**
  * Class Entity

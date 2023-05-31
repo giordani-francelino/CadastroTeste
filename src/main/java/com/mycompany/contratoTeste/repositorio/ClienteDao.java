@@ -1,24 +1,27 @@
 
-package com.mycompany.cadastroteste.repositorio;
+package com.mycompany.contratoTeste.repositorio;
 
-import com.mycompany.cadastroteste.entidade.Contrato;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import com.mycompany.contratoTeste.entidade.Cliente;
+import java.sql.ResultSet;
+
 
 /**
  *
  * <code>
- * CREATE TABLE `contrato` (
+ * CREATE TABLE `cliente` (
  * `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
- * `redacao` MEDIUMTEXT NOT NULL,
- * `ultimaAtualizacao` date,
+ * `cpf` LONGBLOB NOT NULL,
+ * `nome` varchar(45) NOT NULL,
  * PRIMARY KEY (`id`),
  * UNIQUE KEY `id` (`id`)
  * )
  * </code>
  */
 
-public class ContratoDao extends Dao<Contrato>{
+
+public class ClienteDao extends Dao<Cliente> {
 
     @Override
     public String getSaveStatment() {
@@ -31,7 +34,7 @@ public class ContratoDao extends Dao<Contrato>{
     }
 
     @Override
-    public void composeSaveOrUpdateStatement(PreparedStatement pstmt, Contrato e) {
+    public void composeSaveOrUpdateStatement(PreparedStatement pstmt, Cliente e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -46,7 +49,7 @@ public class ContratoDao extends Dao<Contrato>{
     }
 
     @Override
-    public Contrato extractObject(ResultSet resultSet) {
+    public Cliente extractObject(ResultSet resultSet) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

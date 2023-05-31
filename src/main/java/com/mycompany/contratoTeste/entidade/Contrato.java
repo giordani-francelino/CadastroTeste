@@ -1,5 +1,5 @@
 
-package com.mycompany.cadastroteste.entidade;
+package com.mycompany.contratoTeste.entidade;
 
 import java.time.LocalDate;
 

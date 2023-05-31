@@ -1,10 +1,10 @@
 /*
  * CC BY-NC-SA 4.0
  */
-package com.mycompany.cadastroteste.repositorio;
+package com.mycompany.contratoTeste.repositorio;
 
 
-import com.mycompany.cadastroteste.entidade.Entidade;
+import com.mycompany.contratoTeste.entidade.Entidade;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

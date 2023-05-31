@@ -1,6 +1,6 @@
 
 
-package com.mycompany.cadastroteste.entidade;
+package com.mycompany.contratoTeste.entidade;
 
 /**
  *

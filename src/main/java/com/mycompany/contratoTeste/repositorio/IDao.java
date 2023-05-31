@@ -31,7 +31,7 @@
  *   For example, other rights such as publicity, privacy, 
  *   or moral rights may limit how you use the material.
  */
-package com.mycompany.cadastroteste.repositorio;
+package com.mycompany.contratoTeste.repositorio;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
