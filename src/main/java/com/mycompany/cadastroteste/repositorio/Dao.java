@@ -24,7 +24,7 @@ import java.util.logging.Logger;
 public abstract class Dao<T>
         implements IDao<T> {
 
-    public static final String DB = "sistema";
+    public static final String DB = "contratos";
 
     @Override
     public Long saveOrUpdate(T e) {

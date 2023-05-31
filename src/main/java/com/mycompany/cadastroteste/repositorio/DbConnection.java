@@ -32,8 +32,6 @@ public class DbConnection {
     /**
      * URL database connection (protocol/sgbd/ip/port/database/parameters)
      */
-    public static final String URLMYSQL;
-
     public static final String URL;
 
     // Database user
@@ -45,11 +43,6 @@ public class DbConnection {
     // Static initialization
     static {
         // Local server
-        URLMYSQL = "jdbc:mysql://127.0.0.1:3306/mysql"
-                + "?useUnicode=true"
-                + "&useJDBCCompliantTimezoneShift=true"
-                + "&serverTimezone=UTC"
-                + "&autoReconnect=true";
         URL = "jdbc:mysql://127.0.0.1:3306/" + Dao.DB
                 + "?useUnicode=true"
                 + "&useJDBCCompliantTimezoneShift=true"
@@ -80,12 +73,6 @@ public class DbConnection {
         if (connection == null) {
             // ... try ...
             try {
-                System.out.println(">> New database connection");
-                connection = DriverManager.getConnection(URLMYSQL, USER, PASSWORD);
-                System.out.println(">> New database connection");
-                PreparedStatement preparedStatement = connection.prepareStatement("CREATE DATABASE"
-                        + " IF NOT EXISTS " + Dao.DB + ";");
-                preparedStatement.execute();
                 // ... establish and retain the connection 
                 //     from the provided URL, username and password
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
