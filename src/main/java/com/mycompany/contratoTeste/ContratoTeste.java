@@ -17,8 +17,8 @@ import java.time.format.DateTimeFormatter;
 public class ContratoTeste {
 
     public static void main(String[] args) {
-        new ClienteDao().deleteById(20L);
         new ClienteDao().deleteById(21L);
+        new ClienteDao().deleteById(22L);
         Cliente cliente = new Cliente("119.298.263-03", "Ana");
         System.out.println(cliente);
         long clienteId = new ClienteDao().saveOrUpdate(cliente);
