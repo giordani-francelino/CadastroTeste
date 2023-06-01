@@ -54,6 +54,12 @@ public class ContratoDao extends Dao<Contrato>{
     }
 
     @Override
+    public String getDeleteByIdStatment() {
+        return "delete id, redacao, ultimaAtualizacao"
+                + " from " + TABLE + " where id = ?";
+    }
+    
+    @Override
     public String getFindByIdStatment() {
         return "select id, redacao, ultimaAtualizacao"
                 + " from " + TABLE + " where id = ?";

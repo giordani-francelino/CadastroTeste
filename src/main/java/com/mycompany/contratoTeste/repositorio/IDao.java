@@ -55,6 +55,10 @@ public interface IDao<T> {
 
     public Long saveOrUpdate(T e);
 
+    public String getDeleteByIdStatment();
+
+    public boolean deleteById(Long id);
+
     // Get by ID
     public String getFindByIdStatment();
 
@@ -65,7 +69,7 @@ public interface IDao<T> {
 
     public List<T> findAll();
 
-     // Assembly objects
+    // Assembly objects
     public T extractObject(ResultSet resultSet);
 
     public List<T> extractObjects(ResultSet resultSet);

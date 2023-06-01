@@ -103,7 +103,6 @@ public abstract class Dao<T>
 
             // Show the full sentence
             System.out.println(">> SQL: " + preparedStatement);
-
             // Performs the query on the database
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -117,6 +116,31 @@ public abstract class Dao<T>
         }
 
         return null;
+    }
+
+
+    @Override
+    public boolean deleteById(Long id) {
+
+        try ( PreparedStatement preparedStatement
+                = DbConnection.getConnection().prepareStatement(
+                        getDeleteByIdStatment())) {
+
+            // Assemble the SQL statement with the id
+            preparedStatement.setLong(1, id);
+
+            // Show the full sentence
+            System.out.println(">> SQL: " + preparedStatement);
+            // Performs the query on the database
+
+            // Returns the respective object if exists
+                return preparedStatement.execute();
+
+        } catch (Exception ex) {
+            System.out.println("Exception: " + ex);
+        }
+
+        return false;
     }
 
     @Override

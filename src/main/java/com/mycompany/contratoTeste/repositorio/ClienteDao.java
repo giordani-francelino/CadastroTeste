@@ -51,6 +51,12 @@ public class ClienteDao extends Dao<Cliente> {
     }
 
     @Override
+    public String getDeleteByIdStatment() {
+        return "delete id, cpf, nome"
+                + " from " + TABLE + " where id = ?";
+    }
+
+    @Override
     public String getFindByIdStatment() {
         return "select id, cpf, nome"
                 + " from " + TABLE + " where id = ?";
