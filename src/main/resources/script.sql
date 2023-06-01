@@ -1,6 +1,6 @@
  CREATE TABLE `cliente` (
  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
- `cpf` LONGBLOB NOT NULL,
+ `cpf` bigint(11) NOT NULL,
  `nome` varchar(45) NOT NULL,
  PRIMARY KEY (`id`),
  UNIQUE KEY `id` (`id`)
