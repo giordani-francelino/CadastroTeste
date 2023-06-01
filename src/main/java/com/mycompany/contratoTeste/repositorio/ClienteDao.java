@@ -38,7 +38,7 @@ public class ClienteDao extends Dao<Cliente> {
     @Override
     public void composeSaveOrUpdateStatement(PreparedStatement pstmt, Cliente e) {
         try {
-            pstmt.setLong(1, e.getCpf());
+            pstmt.setString(1, e.getCpf());
             pstmt.setString(2, e.getNome());
 
             if (e.getId() != null) {
@@ -52,8 +52,7 @@ public class ClienteDao extends Dao<Cliente> {
 
     @Override
     public String getDeleteByIdStatment() {
-        return "delete id, cpf, nome"
-                + " from " + TABLE + " where id = ?";
+        return "delete from " + TABLE + " where id = ?";
     }
 
     @Override
@@ -76,7 +75,7 @@ public class ClienteDao extends Dao<Cliente> {
         try {
             cliente = new Cliente();
             cliente.setId(resultSet.getLong("id"));
-            cliente.setCpf(resultSet.getLong("cpf"));
+            cliente.setCpf(resultSet.getString("cpf"));
             cliente.setNome(resultSet.getString("nome"));
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);

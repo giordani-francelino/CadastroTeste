@@ -1,7 +1,5 @@
-
 package com.mycompany.contratoTeste.repositorio;
 
-import com.mycompany.contratoTeste.entidade.Contrato;
 import com.mycompany.contratoTeste.entidade.Contrato;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,30 +20,29 @@ import java.util.logging.Logger;
  * )
  * </code>
  */
-
-public class ContratoDao extends Dao<Contrato>{
-
+public class ContratoDao extends Dao<Contrato> {
 
     public static final String TABLE = "contrato";
 
     @Override
     public String getSaveStatment() {
-        return "insert into " + TABLE + "(redacao, ultimaAtualizacao)  values (?, ?)";
+        return "insert into " + TABLE + "(idCliente, redacao, ultimaAtualizacao)  values (?, ?)";
     }
 
     @Override
     public String getUpdateStatment() {
-        return "update " + TABLE + " set redacao = ?, ultimaAtualizacao = ? where id = ?";
+        return "update " + TABLE + " set idCliente = ?, redacao = ?, ultimaAtualizacao = ? where id = ?";
     }
 
     @Override
     public void composeSaveOrUpdateStatement(PreparedStatement pstmt, Contrato e) {
         try {
-            pstmt.setString(1, e.getRedacao());
-            pstmt.setObject(2, e.getUltimaAtualizacao(), java.sql.Types.DATE);
+            pstmt.setLong(1, e.getIdCliente());
+            pstmt.setString(2, e.getRedacao());
+            pstmt.setObject(3, e.getUltimaAtualizacao(), java.sql.Types.DATE);
 
             if (e.getId() != null) {
-                pstmt.setLong(3, e.getId());
+                pstmt.setLong(4, e.getId());
             }
 
         } catch (SQLException ex) {
@@ -55,19 +52,18 @@ public class ContratoDao extends Dao<Contrato>{
 
     @Override
     public String getDeleteByIdStatment() {
-        return "delete id, redacao, ultimaAtualizacao"
-                + " from " + TABLE + " where id = ?";
+        return "delete from " + TABLE + " where id = ?";
     }
-    
+
     @Override
     public String getFindByIdStatment() {
-        return "select id, redacao, ultimaAtualizacao"
+        return "select id, idCliente, redacao, ultimaAtualizacao"
                 + " from " + TABLE + " where id = ?";
     }
 
     @Override
     public String getFindAllStatment() {
-        return "select id, redacao, ultimaAtualizacao"
+        return "select id, idCliente, redacao, ultimaAtualizacao"
                 + " from " + TABLE;
     }
 
@@ -79,6 +75,7 @@ public class ContratoDao extends Dao<Contrato>{
         try {
             contrato = new Contrato();
             contrato.setId(resultSet.getLong("id"));
+            contrato.setIdCliente(resultSet.getLong("idCliente"));
             contrato.setRedacao(resultSet.getString("redacao"));
             contrato.setUltimaAtualizacao(
                     resultSet.getObject("ultimaAtualizacao", LocalDate.class));
@@ -88,5 +85,5 @@ public class ContratoDao extends Dao<Contrato>{
 
         return contrato;
     }
-    
+
 }

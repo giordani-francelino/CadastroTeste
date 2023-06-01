@@ -42,7 +42,6 @@ package com.mycompany.contratoTeste.entidade;
 public abstract class Entidade {
 
     private Long id;
-    private boolean excluded;
 
     public Long getId() {
         return id;
@@ -52,13 +51,7 @@ public abstract class Entidade {
         this.id = id;
     }
 
-    public boolean isExcluded() {
-        return excluded;
-    }
 
-    public void setExcluido(boolean excluded) {
-        this.excluded = excluded;
-    }
     
 
 }

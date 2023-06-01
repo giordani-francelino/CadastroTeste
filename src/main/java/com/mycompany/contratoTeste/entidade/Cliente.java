@@ -1,36 +1,41 @@
-
-
 package com.mycompany.contratoTeste.entidade;
 
 /**
  *
  * @author Caixa
  */
-public class Cliente extends Entidade{
-    
-    private long cpf;
+public class Cliente extends Entidade {
+
+    private String cpf;
     private String nome;
 
+    public Cliente() {
+
+    }
+
+    public Cliente(String cpf, String nome) {
+        this.cpf = cpf;
+        this.nome = nome;
+    }
+
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
-    
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
-    
-    public void setCpf(long cpf) {
+
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
+
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-//</editor-fold>
 
+//</editor-fold>
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -41,7 +46,5 @@ public class Cliente extends Entidade{
         sb.append('}');
         return sb.toString();
     }
-    
-    
-    
+
 }
