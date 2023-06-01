@@ -26,7 +26,7 @@ public class ContratoDao extends Dao<Contrato> {
 
     @Override
     public String getSaveStatment() {
-        return "insert into " + TABLE + "(idCliente, redacao, ultimaAtualizacao)  values (?, ?)";
+        return "insert into " + TABLE + "(idCliente, redacao, ultimaAtualizacao)  values (?, ?, ?)";
     }
 
     @Override

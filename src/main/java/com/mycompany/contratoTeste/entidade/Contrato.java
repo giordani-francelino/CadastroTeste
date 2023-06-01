@@ -10,6 +10,16 @@ public class Contrato extends Entidade {
     private String redacao;
     private LocalDate ultimaAtualizacao;
 
+    public Contrato(Long idCliente, String redacao, LocalDate ultimaAtualizacao) {
+        this.idCliente = idCliente;
+        this.redacao = redacao;
+        this.ultimaAtualizacao = ultimaAtualizacao;
+    }
+    
+    public Contrato(){
+        
+    }
+
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
 
     public Long getIdCliente() {
