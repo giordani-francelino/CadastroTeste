@@ -16,6 +16,7 @@ public class ContratoTeste {
 
     public static void main(String[] args) {
 
+//<editor-fold defaultstate="collapsed" desc="testes deleteById">
         // Recuperar todos os objetos
         List<Cliente> clientes = new ClienteDao().findAll();
         System.out.println(">> " + clientes);
@@ -27,11 +28,13 @@ public class ContratoTeste {
         for (Contrato c : contratos) {
             new ContratoDao().deleteById(c.getId());
         }
-        
+
         for (Cliente c : clientes) {
             new ClienteDao().deleteById(c.getId());
         }
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="testes saveOrUpdate">
         Cliente cliente = new Cliente("119.298.263-03", "Ana");
         System.out.println(cliente);
         long clienteId = new ClienteDao().saveOrUpdate(cliente);
@@ -98,7 +101,9 @@ public class ContratoTeste {
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
         System.out.println(contrato);
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="teste findAll">
         // Recuperar todos os objetos
         clientes = new ClienteDao().findAll();
         System.out.println(">> " + clientes);
@@ -107,5 +112,18 @@ public class ContratoTeste {
         contratos = new ContratoDao().findAll();
         System.out.println(">> " + contratos);
 
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="teste findById">
+        for (Cliente c : clientes) {
+            cliente = new ClienteDao().findById(c.getId());
+            System.out.println(">> " + cliente);
+        }
+
+        for (Contrato c : contratos) {
+            contrato = new ContratoDao().findById(c.getId());
+            System.out.println(">> " + contrato);
+        }
+//</editor-fold>
     }
 }
