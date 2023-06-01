@@ -58,7 +58,9 @@ public class Contrato extends Entidade {
         sb.append("redacao=").append(getRedacao());
         sb.append(", ultimaAtualizacao=").append(getUltimaAtualizacao());
         sb.append('}');
-        return sb.toString();
+        String s = sb.toString();
+        s = s + "\n";
+        return s;
     }
     
     

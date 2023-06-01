@@ -1,6 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 package com.mycompany.contratoTeste;
 
 import com.mycompany.contratoTeste.entidade.Cliente;
@@ -9,6 +6,7 @@ import com.mycompany.contratoTeste.repositorio.ClienteDao;
 import com.mycompany.contratoTeste.repositorio.ContratoDao;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  *
@@ -17,8 +15,23 @@ import java.time.format.DateTimeFormatter;
 public class ContratoTeste {
 
     public static void main(String[] args) {
-        new ClienteDao().deleteById(21L);
-        new ClienteDao().deleteById(22L);
+
+        // Recuperar todos os objetos
+        List<Cliente> clientes = new ClienteDao().findAll();
+        System.out.println(">> " + clientes);
+
+        // Recuperar todos os objetos
+        List<Contrato> contratos = new ContratoDao().findAll();
+        System.out.println(">> " + contratos);
+
+        for (Contrato c : contratos) {
+            new ContratoDao().deleteById(c.getId());
+        }
+        
+        for (Cliente c : clientes) {
+            new ClienteDao().deleteById(c.getId());
+        }
+
         Cliente cliente = new Cliente("119.298.263-03", "Ana");
         System.out.println(cliente);
         long clienteId = new ClienteDao().saveOrUpdate(cliente);
@@ -85,6 +98,14 @@ public class ContratoTeste {
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
         System.out.println(contrato);
+
+        // Recuperar todos os objetos
+        clientes = new ClienteDao().findAll();
+        System.out.println(">> " + clientes);
+
+        // Recuperar todos os objetos
+        contratos = new ContratoDao().findAll();
+        System.out.println(">> " + contratos);
 
     }
 }

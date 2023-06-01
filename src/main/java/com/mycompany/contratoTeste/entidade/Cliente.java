@@ -44,7 +44,9 @@ public class Cliente extends Entidade {
         sb.append("cpf=").append(getCpf());
         sb.append(", nome=").append(getNome());
         sb.append('}');
-        return sb.toString();
+        String s = sb.toString();
+        s = s + "\n";
+        return s;
     }
 
 }
