@@ -48,6 +48,16 @@ public class Cliente extends Entidade {
         this.nome = nome;
     }
 
+    public List<Contrato> getContratos() {
+        return contratos;
+    }
+
+    public void setContratos(List<Contrato> contratos) {
+        this.contratos = contratos;
+    }
+    
+    
+
 //</editor-fold>
     @Override
     public String toString() {
