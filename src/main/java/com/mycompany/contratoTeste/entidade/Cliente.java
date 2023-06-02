@@ -1,5 +1,8 @@
 package com.mycompany.contratoTeste.entidade;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Caixa
@@ -8,15 +11,25 @@ public class Cliente extends Entidade {
 
     private String cpf;
     private String nome;
+    private List<Contrato> contratos;
 
     public Cliente() {
-
+        contratos = new ArrayList<Contrato>();
     }
 
     public Cliente(String cpf, String nome) {
+        this();
         this.cpf = cpf;
         this.nome = nome;
     }
+
+    public Cliente(String cpf, String nome, List<Contrato> contratos) {
+        this.cpf = cpf;
+        this.nome = nome;
+        this.contratos = contratos;
+    }
+    
+    
 
     //<editor-fold defaultstate="collapsed" desc="getters and setters">
     public String getCpf() {
