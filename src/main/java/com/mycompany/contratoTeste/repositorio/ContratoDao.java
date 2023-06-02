@@ -37,7 +37,7 @@ public class ContratoDao extends Dao<Contrato> {
     @Override
     public void composeSaveOrUpdateStatement(PreparedStatement pstmt, Contrato e) {
         try {
-            pstmt.setLong(1, e.getIdCliente());
+            pstmt.setLong(1, e.getCliente().getId());
             pstmt.setString(2, e.getRedacao());
             pstmt.setObject(3, e.getUltimaAtualizacao(), java.sql.Types.DATE);
 
@@ -75,7 +75,7 @@ public class ContratoDao extends Dao<Contrato> {
         try {
             contrato = new Contrato();
             contrato.setId(resultSet.getLong("id"));
-            contrato.setIdCliente(resultSet.getLong("idCliente"));
+//            contrato.setIdCliente(resultSet.getLong("idCliente"));
             contrato.setRedacao(resultSet.getString("redacao"));
             contrato.setUltimaAtualizacao(
                     resultSet.getObject("ultimaAtualizacao", LocalDate.class));

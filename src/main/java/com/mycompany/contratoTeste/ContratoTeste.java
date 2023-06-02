@@ -5,7 +5,6 @@ import com.mycompany.contratoTeste.entidade.Contrato;
 import com.mycompany.contratoTeste.repositorio.ClienteDao;
 import com.mycompany.contratoTeste.repositorio.ContratoDao;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -43,13 +42,13 @@ public class ContratoTeste {
         clienteId = new ClienteDao().saveOrUpdate(cliente);
         System.out.println(cliente);
 
-        Contrato contrato = new Contrato(clienteId, "Contrato por tempo determinado",
+        Contrato contrato = new Contrato(cliente, "Contrato por tempo determinado",
                 LocalDate.parse("2023-05-21"));
         long contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
         System.out.println(contrato);
 
-        contrato = new Contrato(clienteId, "Contrato por tempo indeterminado",
+        contrato = new Contrato(cliente, "Contrato por tempo indeterminado",
                 LocalDate.parse("2023-12-01"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
@@ -57,7 +56,7 @@ public class ContratoTeste {
         contrato.setUltimaAtualizacao(LocalDate.parse("2023-05-01"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
 
-        contrato = new Contrato(clienteId, "Contrato de trabalho eventual2023",
+        contrato = new Contrato(cliente, "Contrato de trabalho eventual2023",
                 LocalDate.parse("2023-05-26"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
@@ -74,13 +73,13 @@ public class ContratoTeste {
         clienteId = new ClienteDao().saveOrUpdate(cliente);
         System.out.println(cliente);
 
-        contrato = new Contrato(clienteId, "Contrato de estágio",
+        contrato = new Contrato(cliente, "Contrato de estágio",
                 LocalDate.parse("2023-10-15"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
         System.out.println(contrato);
 
-        contrato = new Contrato(clienteId, "Contrato de experiência",
+        contrato = new Contrato(cliente, "Contrato de experiência",
                 LocalDate.parse("2023-05-01"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
@@ -88,7 +87,7 @@ public class ContratoTeste {
         contrato.setUltimaAtualizacao(LocalDate.parse("2023-09-16"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
 
-        contrato = new Contrato(clienteId, "Contrato de teletrabalho, 17/08/2023",
+        contrato = new Contrato(cliente, "Contrato de teletrabalho, 17/08/2023",
                 LocalDate.parse("2023-08-17"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
@@ -96,7 +95,7 @@ public class ContratoTeste {
         contrato.setRedacao("Contrato de teletrabalho");
         contratoId = new ContratoDao().saveOrUpdate(contrato);
 
-        contrato = new Contrato(clienteId, "Contrato intermitente",
+        contrato = new Contrato(cliente, "Contrato intermitente",
                 LocalDate.parse("2023-07-15"));
         contratoId = new ContratoDao().saveOrUpdate(contrato);
         contrato.setId(contratoId);
